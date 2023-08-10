@@ -6,6 +6,114 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
+
+    <LinearLayout
+        android:layout_width="@dimen/width_counters_views"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toLeftOf="@+id/layout_numbers"
+        android:id="@+id/layout_chars"
+        android:orientation="vertical"
+        android:layout_margin="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center_horizontal"
+        app:layout_constraintLeft_toLeftOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/number_chars"
+            android:textColor="@color/black"/>
+
+        <com.example.ramzpouya.views.PouyCounter
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/counter_chars"
+
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="@dimen/width_counters_views"
+        android:layout_height="wrap_content"
+        android:id="@+id/layout_numbers"
+        android:orientation="vertical"
+        android:layout_margin="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/layout_chars"
+        android:gravity="center_horizontal"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/number_numbers"
+            android:textColor="@color/black"/>
+
+        <com.example.ramzpouya.views.PouyCounter
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/counter_numbers"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="@dimen/width_counters_views"
+        android:layout_height="wrap_content"
+        android:id="@+id/layout_specials"
+        android:orientation="vertical"
+        android:layout_margin="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/layout_chars"
+        app:layout_constraintLeft_toLeftOf="@+id/layout_chars"
+        app:layout_constraintRight_toRightOf="@+id/layout_chars"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/number_specials"
+            android:textColor="@color/black"/>
+
+        <com.example.ramzpouya.views.PouyCounter
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/counter_specials"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="@dimen/width_counters_views"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        app:layout_constraintRight_toRightOf="@+id/layout_numbers"
+        app:layout_constraintLeft_toLeftOf="@+id/layout_numbers"
+        app:layout_constraintTop_toTopOf="@+id/layout_specials"
+        app:layout_constraintBottom_toBottomOf="@+id/layout_specials"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/total_sum"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:id="@+id/txt_sum"
+            android:textSize="40sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
     <com.google.android.material.button.MaterialButton
         android:layout_width="130dp"
         android:layout_height="140dp"
@@ -31,10 +139,23 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="test"
+        android:textColor="@color/black"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/save"
+
+        android:layout_marginBottom="70dp"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        app:cornerRadius="0dp"
+        android:id="@+id/btn_save"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

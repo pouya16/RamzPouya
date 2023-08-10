@@ -15,29 +15,34 @@ class HomeViewModel : ViewModel() {
     private val _numbers = "0123456789"
     private val _specialChars = "!@#$%&*-_"
 
-
     private val _charCount = 8
     private val _numberCount = 3
     private val _specialCount = 3
 
+    val _counter = MutableLiveData<CountModel>().apply {
+        value = CountModel(_charCount,_numberCount,_specialCount)
+    }
+    val counter: LiveData<CountModel>
+        get()=_counter
+    fun updateCounter(countModel: CountModel){
+        _counter.value = countModel
+    }
+
+
     fun generateRand(){
-        val length = _charCount + _numberCount + _specialCount
         var pass1 = ""
-        for (i in 1.._charCount)
+        for (i in 1.._counter.value!!.charNumbers)
             pass1 += _lowerCase.random()
         var pass2 = ""
-        for(i in 1.._numberCount)
+        for(i in 1.._counter.value!!.numberNumbers)
             pass2 += _numbers.random()
         var pass3 = ""
-        for(i in 1.._specialCount)
+        for(i in 1.._counter.value!!.specialNumbers)
             pass3 += _specialChars.random()
 
         var pass = pass1 + pass2 + pass3
-        Log.i("Log1", "pass is  : " + pass)
         pass = shuffle(pass)!!
-        //pass = Collections.shuffle(pass.toList()).toString()
         _text.value = pass
-
     }
 
     fun shuffle(text: String): String? {

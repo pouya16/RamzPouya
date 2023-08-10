@@ -2,5 +2,13 @@
 <resources>
 
 
+    <declare-styleable name="PouyaCounter">
+
+        <attr name="initialCounter" format="integer"/>
+        <attr name="maxNum" format="integer"/>
+        <attr name="minNum" format="integer"/>
+        <attr name="side" format="boolean"/>
+
+    </declare-styleable>
 
 </resources>

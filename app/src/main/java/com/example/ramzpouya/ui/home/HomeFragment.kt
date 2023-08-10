@@ -1,6 +1,7 @@
 package com.example.ramzpouya.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,6 +37,14 @@ class HomeFragment : Fragment() {
         homeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
+        homeViewModel.counter.observe(viewLifecycleOwner){
+            binding.counterChars.setNumber(it.charNumbers)
+            binding.counterNumbers.setNumber(it.numberNumbers)
+            binding.counterSpecials.setNumber(it.specialNumbers)
+            binding.txtSum.text = (it.charNumbers + it.numberNumbers + it.specialNumbers).toString()
+        }
+
+        //homeViewModel.updateCounter(CountModel(5,5,5))
         return root
     }
 
