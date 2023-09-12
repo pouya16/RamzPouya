@@ -19,7 +19,7 @@ class HomeViewModel : ViewModel() {
     private val _numberCount = 3
     private val _specialCount = 3
 
-    val _counter = MutableLiveData<CountModel>().apply {
+    private val _counter = MutableLiveData<CountModel>().apply {
         value = CountModel(_charCount,_numberCount,_specialCount)
     }
     val counter: LiveData<CountModel>
@@ -45,7 +45,7 @@ class HomeViewModel : ViewModel() {
         _text.value = pass
     }
 
-    fun shuffle(text: String): String? {
+    private fun shuffle(text: String): String? {
         val characters = text.toCharArray()
         for (i in characters.indices) {
             val randomIndex = (Math.random() * characters.size).toInt()

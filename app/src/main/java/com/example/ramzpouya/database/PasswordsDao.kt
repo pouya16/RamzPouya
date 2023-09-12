@@ -12,6 +12,9 @@ interface PasswordsDao {
     @Insert
     fun insertPass(pass : PasswordsModel)
 
+    @Insert
+    fun insertAllPass(passes: List<PasswordsModel>)
+
     @Delete
     fun deletePass(pass: PasswordsModel)
 
